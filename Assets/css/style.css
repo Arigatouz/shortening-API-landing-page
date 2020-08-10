@@ -5,6 +5,7 @@
   padding: 0;
   -webkit-box-sizing: border-box;
           box-sizing: border-box;
+  outline: none;
 }
 
 html {
@@ -53,6 +54,7 @@ html {
   transition: -webkit-transform 0.2s ease-in-out;
   transition: transform 0.2s ease-in-out;
   transition: transform 0.2s ease-in-out, -webkit-transform 0.2s ease-in-out;
+  outline: none;
 }
 
 .menuToggler__icon {
@@ -78,6 +80,7 @@ html {
   border-radius: 5rem;
   -webkit-transition: all 0.1s ease-in;
   transition: all 0.1s ease-in;
+  outline: none;
 }
 
 .mainHeader {
