@@ -1,0 +1,228 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Frontend Mentor || Shortly URL shortening API Challenge</title>
+    <link
+      rel="icon"
+      type="image/png"
+      sizes="32x32"
+      href="./images/favicon-32x32.png"
+    />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,500;0,700;1,400;1,900&display=swap"
+      rel="stylesheet"
+    />
+    <link rel="stylesheet" href="./Assets/vendor/normalize.css" />
+    <link rel="stylesheet" href="./Assets/css/style.css" />
+  </head>
+  <body>
+    <header class="mainHeader">
+      <div class="menuToggler">
+        <button id="menuToggler" class="menuToggler__btn">
+          <i class="menuToggler__icon fas fa-bars"></i>
+        </button>
+      </div>
+      <div class="container">
+        <div class="mainHeader__logo">
+          <img src="./images/logo.svg" alt="Site-Logo" />
+        </div>
+      </div>
+      <div id="navMenu" class="container navBar">
+        <nav class="container mainNav">
+          <ul class="mainNav__list">
+            <li class="mainNav__item">
+              <a class="mainNav__link" href="#">Features</a>
+            </li>
+            <li class="mainNav__item">
+              <a class="mainNav__link" href="#">Pricing</a>
+            </li>
+            <li class="mainNav__item">
+              <a class="mainNav__link" href="#">Resources</a>
+            </li>
+          </ul>
+        </nav>
+        <nav class="secondaryNav">
+          <ul class="secondaryNav__list">
+            <li class="secondaryNav__item">
+              <a href="#" class="secondaryNav__link">Login</a>
+            </li>
+            <li class="secondaryNav__item">
+              <a href="#" class="BTN secondaryNav__link">Sign Up</a>
+            </li>
+          </ul>
+        </nav>
+      </div>
+    </header>
+    <section class="hero container">
+      <img class="hero__image" src="./images/illustration-working.svg" alt="" />
+      <header class="hero__header">
+        <h1>More than just shorter links</h1>
+        <p>
+          Build your brand’s recognition and get detailed insights on how your
+          links are performing.
+        </p>
+        <button class="BTN hero__btn">
+          Get Started
+        </button>
+      </header>
+    </section>
+    <section class="shortenLinks container">
+      <div class="background">
+        <img src="./images/bg-shorten-mobile.svg" alt="shorten-image" />
+        <form action="#" class="shortenLinks__form">
+          <input
+            type="text"
+            id="shortenLinks__input"
+            placeholder="Shorten a link here..."
+          />
+          <span class="shortenLinks__error">please add a link</span>
+          <button class="BTN shortenLinks__btn" type="submit">
+            Shorten It!
+          </button>
+        </form>
+      </div>
+    </section>
+    <main class="mainContent">
+      <header class="mainContent__header container">
+        <h2>Advanced Statistics</h2>
+        <p>
+          Track how your links are performing across the web with our advanced
+          statistics dashboard.
+        </p>
+      </header>
+      <div class="container">
+        <div class="mainContent__box">
+          <div class="mainContent__box__cyanLine"></div>
+          <div class="mainContent__box__imageBox">
+            <img
+              src="./images/icon-brand-recognition.svg"
+              alt="Brand-recognition"
+              class="mainContent__box__image"
+            />
+          </div>
+          <h3 class="mainContent__box__header">
+            Brand Recognition
+          </h3>
+          <p class="mainContent__box__body">
+            Boost your brand recognition with each click. Generic links don’t
+            mean a thing. Branded links help instil confidence in your content.
+          </p>
+        </div>
+        <div class="mainContent__box">
+          <div class="mainContent__box__cyanLine"></div>
+          <div class="mainContent__box__imageBox">
+            <img
+              src="./images/icon-detailed-records.svg"
+              alt="detail-records"
+              class="mainContent__box__image"
+            />
+          </div>
+          <h3 class="mainContent__box__header">
+            Detailed Records
+          </h3>
+          <p class="mainContent__box__body">
+            Gain insights into who is clicking your links. Knowing when and
+            where people engage with your content helps inform better decisions.
+          </p>
+        </div>
+        <div class="mainContent__box">
+          <div class="mainContent__box__imageBox">
+            <img
+              src="./images/icon-fully-customizable.svg"
+              alt="customizable"
+              class="mainContent__box__image"
+            />
+          </div>
+          <h3 class="mainContent__box__header">
+            Fully Customizable
+          </h3>
+          <p class="mainContent__box__body">
+            Improve brand awareness and content discoverability through
+            customizable links, supercharging audience engagement.
+          </p>
+        </div>
+      </div>
+    </main>
+    <section class="boostLinks">
+      <img src="./images/bg-boost-mobile.svg" alt="bg-image" />
+      <div class="boostLinks__bodyWrapper">
+        <h2>Boost your links today</h2>
+        <button class="BTN boostLinks__bodyWrapper__btn">Get Started</button>
+      </div>
+    </section>
+    <footer class="mainFooter">
+      <div class="container">
+        <img src="./images/logo-footer.svg" alt="mainFooterLOgo" />
+        <nav class="mainFooter__Nav">
+          <h3>Features</h3>
+          <ul class="mainFooter__Nav__list">
+            <li class="mainFooter__Nav__item">
+              <a href="#" class="mainFooter__Nav__link"> Link Shortening</a>
+            </li>
+            <li class="mainFooter__Nav__item">
+              <a href="#" class="mainFooter__Nav__link"> Branded Links</a>
+            </li>
+            <li class="mainFooter__Nav__item">
+              <a href="#" class="mainFooter__Nav__link">Analytics</a>
+            </li>
+          </ul>
+          <h3>Resources</h3>
+          <ul class="mainFooter__Nav__list">
+            <li class="mainFooter__Nav__item">
+              <a href="#" class="mainFooter__Nav__link">Blog</a>
+            </li>
+            <li class="mainFooter__Nav__item">
+              <a href="#" class="mainFooter__Nav__link">Developers</a>
+            </li>
+            <li class="mainFooter__Nav__item">
+              <a href="#" class="mainFooter__Nav__link">Support</a>
+            </li>
+          </ul>
+          <h3>Company</h3>
+          <ul class="mainFooter__Nav__list">
+            <li class="mainFooter__Nav__item">
+              <a href="#" class="mainFooter__Nav__link">About</a>
+            </li>
+            <li class="mainFooter__Nav__item">
+              <a href="#" class="mainFooter__Nav__link">Our Team</a>
+            </li>
+            <li class="mainFooter__Nav__item">
+              <a href="#" class="mainFooter__Nav__link">Careers</a>
+            </li>
+            <li class="mainFooter__Nav__item">
+              <a href="#" class="mainFooter__Nav__link">Contact</a>
+            </li>
+          </ul>
+          <div class="socialContainer">
+            <ul class="mainFooter__NavSocial__List">
+              <li class="mainFooter__NavSocial__item">
+                <a href="#" class="mainFooter__NavSocial__link">
+                  <img src="./images/soical/SVG/facebook.svg" alt="facebook-icon">
+                </a>
+              </li>
+              <li class="mainFooter__NavSocial__item">
+                <a href="#" class="mainFooter__NavSocial__link">
+                  <img src="./images/soical/SVG/instagram.svg" alt="instagram-icon"/>
+                </a>
+              </li>
+              <li class="mainFooter__NavSocial__item">
+                <a href="#" class="mainFooter__NavSocial__link">
+                  <img src="./images/soical/SVG/linkedin.svg" alt="linkedIN-icon"/>
+                </a>
+              </li>
+              <li class="mainFooter__NavSocial__item">
+                <a href="#" class="mainFooter__NavSocial__link">
+                  <img src="./images/soical/SVG/twitter.svg" alt="twitter-icon"/>
+                </a>
+              </li>
+            </ul>
+          </div>
+        </nav>
+      </div>
+    </footer>
+  </body>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.14.0/js/all.min.js"></script>
+  <script src="./Assets/js/app.js"></script>
+</html>
