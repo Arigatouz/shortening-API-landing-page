@@ -8,7 +8,9 @@
   box-sizing: border-box;
   outline: none;
 }
-
+img {
+  height: 100%;
+}
 html {
   font-size: 62.5%;
   font-family: "Poppins", sans-serif;
@@ -23,7 +25,7 @@ html {
   //secondary colors
   --clr-Red: hsl(0, 87%, 67%);
   //neutral colors
-  --clr-Gray: rgb(177, 166, 184);
+  --clr-Gray: rgb(198, 186, 206);
   --clr-Gray2: hsla(287, 9%, 62%, 0.329);
   --clr-Grayish-Violet: hsl(257, 7%, 63%);
   --clr-Very-DarkBlue: hsl(255, 11%, 22%);
@@ -33,7 +35,9 @@ html {
   --f-size-small: 1.8rem;
   --f-size-XMedium: 3rem;
   --f-size-medium: 4rem;
+  --f-size-large: 8rem;
   //line Height
+  --lineHeight-small: 1.5;
   --lineHeight-medium: 1.8;
   //gutter
   --gutter-XSmall: 0.5em;
@@ -59,6 +63,7 @@ html {
 //--------------------------------------
 //some layout edits
 .container {
+  // max-width: 1440px;
   width: 90%;
   margin: 0 auto;
 }
@@ -68,6 +73,9 @@ html {
   position: absolute;
   top: -1rem;
   right: 2rem;
+  @include respond(desktop) {
+    display: none;
+  }
   &__btn {
     width: 5rem;
     background-color: #fff;
@@ -110,48 +118,121 @@ html {
 .mainHeader {
   background-color: var(--clr-bg);
   position: relative;
-  &__logo {
-    margin-top: 3rem;
+
+  &__wrapper {
+    width: 100%;
+    @include respond(desktop) {
+      display: flex;
+      align-items: baseline;
+    }
   }
+  &__logo {
+    margin-top: 5rem;
+    margin-left: 3rem;
+    @include respond(tab) {
+      & img {
+        width: 20rem;
+      }
+      @include respond(desktop) {
+        margin-left: 15rem;
+        width: 30rem;
+      }
+    }
+  }
+
   & .navBar {
     display: none;
-    margin-top: 2em;
+    margin: 0 auto;
+    margin-top: var(--gutter-medium);
     padding-top: 2em;
     text-align: center;
     background-color: var(--clr-mainDarkViolet);
-    width: 80%;
+    width: 90%;
     border-radius: 1rem;
     box-shadow: 20px 20px 6px rgba(194, 191, 191, 0.7);
-
+    @include respond(desktop) {
+      margin-top: 0;
+      display: flex;
+      justify-content: flex-start;
+      background-color: var(--clr-bg);
+      box-shadow: none;
+      border: none;
+    }
     & .mainNav {
       border-bottom: 1px solid rgba(194, 191, 191, 0.3);
-      width: 90%;
+      margin: 0 auto;
       padding-bottom: var(--gutter-small);
       margin-bottom: 2em;
+      width: 40%;
+      @include respond(desktop) {
+        border-bottom: none;
+      }
       &__list {
         list-style: none;
+        @include respond(desktop) {
+          display: flex;
+          justify-content: space-around;
+        }
       }
       &__item {
         padding: var(--gutter-small) 0;
+        @include respond(desktop) {
+          margin-left: -15rem;
+          padding: 0;
+        }
       }
       &__link {
         color: var(--clr-bg);
         text-decoration: none;
         font-size: 2rem;
+
+        @include respond(desktop) {
+          color: var(--clr-Grayish-Violet);
+          &:hover {
+            color: var(--clr-Cyan);
+          }
+        }
       }
     }
     & .secondaryNav {
       padding-bottom: 2em;
+      @include respond(desktop) {
+        width: 50%;
+      }
       &__list {
         list-style: none;
+        @include respond(desktop) {
+          display: flex;
+          justify-content: center;
+        }
       }
       &__item {
         padding: var(--gutter-small) 0 2em;
+        @include respond(desktop) {
+          padding: 0;
+          margin-left: var(--gutter-medium);
+        }
       }
       &__link {
         color: var(--clr-bg);
         text-decoration: none;
         font-size: 2rem;
+        @include respond(desktop) {
+          color: var(--clr-Grayish-Violet);
+          &:hover {
+            color: var(--clr-Cyan);
+          }
+          &--btn {
+            color: var(--clr-Cyan);
+            background-color: var(--clr-bg);
+            padding: 0.2em 1em;
+            transition: all 0.3s;
+            &:hover {
+              color: var(--clr-bg);
+              background-color: var(--clr-Cyan);
+            }
+          }
+        }
       }
     }
   }
@@ -159,32 +240,66 @@ html {
 //---------------------------------------
 // the hero section
 .hero {
-  margin: 5em 0 10em;
+  margin: 5em auto 10em;
   text-align: center;
-  margin-left: 2em;
-
+  width: 80%;
+  @include respond(tab) {
+    margin-top: 10em;
+  }
+  @include respond(desktop) {
+    display: flex;
+    justify-content: space-between;
+    margin-bottom: 20em;
+  }
   &__image {
     width: 100%;
+    @include respond(desktop) {
+      order: 2;
+      height: 100%;
+      width: 50%;
+    }
   }
-  & h1 {
-    font-size: var(--f-size-medium);
-    font-weight: 900;
-    line-height: var(--lineHeight-medium);
-  }
-  & p {
-    font-size: var(--f-size-small);
-    color: var(--clr-Grayish-Violet);
-    font-weight: 700;
-    margin-bottom: var(--gutter-small);
-    line-height: var(--lineHeight-medium);
+  &__header {
+    @include respond(desktop) {
+      order: 1;
+      width: 40%;
+      text-align: left;
+    }
+    & h1 {
+      font-size: var(--f-size-medium);
+      font-weight: 900;
+      line-height: var(--lineHeight-medium);
+      @include respond(tab) {
+        font-size: var(--f-size-large);
+        line-height: var(--lineHeight-small);
+      }
+      @include respond(desktop) {
+        font-size: 5rem;
+      }
+    }
+    & p {
+      font-size: var(--f-size-small);
+      color: var(--clr-Grayish-Violet);
+      font-weight: 700;
+      margin-bottom: var(--gutter-small);
+      line-height: var(--lineHeight-medium);
+      @include respond(tab) {
+        font-size: var(--f-size-XMedium);
+      }
+      @include respond(desktop) {
+        font-size: var(--f-size-small);
+      }
+    }
   }
   &__btn {
+    margin-bottom: 3em;
     font-size: var(--f-size-small);
     color: var(--clr-bg);
     border: none;
     padding: var(--gutter-small) 2.5em;
     cursor: pointer;
     box-shadow: 2px 4px 6px rgba(0, 0, 0, 0.5);
+
     &:hover {
       transform: translateY(-2px);
       box-shadow: 3px 5px 8px rgba(0, 0, 0, 0.5);
@@ -193,13 +308,21 @@ html {
       transform: translateY(2px);
       box-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5);
     }
+    @include respond(tab) {
+      font-size: var(--f-size-XMedium);
+    }
+    @include respond(desktop) {
+      font-size: var(--f-size-small);
+    }
   }
 }
 //-----------------------------------------
 //shorten link from
 .shortenLinks {
   position: relative;
-  background-image: url("../images/icon-detailed-records.svg");
+  @include respond(desktop) {
+    width: 100%;
+  }
   & .background {
     background-color: var(--clr-mainDarkViolet);
     width: 100%;
@@ -208,6 +331,14 @@ html {
     top: -8rem;
     z-index: 1;
     border-radius: 1rem;
+    @include respond(tab) {
+      height: 23rem;
+    }
+    @include respond(desktop) {
+      width: 80%;
+      left: 10%;
+      height: 15rem;
+    }
     & img {
       width: 70%;
       height: 70%;
@@ -215,6 +346,10 @@ html {
       top: 3.5px;
       right: 1.5px;
       z-index: 2;
+      @include respond(desktop) {
+        width: 99%;
+        height: 95%;
+      }
     }
   }
   &__form {
@@ -225,16 +360,30 @@ html {
     border-radius: 1rem;
     background-position: bottom;
     width: 100%;
+    @include respond(desktop) {
+      display: flex;
+      justify-content: center;
+      padding: 4rem 0 0 0;
+    }
     & input {
       padding: 0.5em 0.5em;
-      border: 3px inset var(--clr-Red);
+      // border: 3px inset var(--clr-Red);
       border-radius: 0.5rem;
       width: 100%;
       margin-bottom: 2em;
       font-size: 2rem;
       color: var(--clr-Red);
+      @include respond(tab) {
+        padding: 0.8em 0.5em;
+      }
+      @include respond(desktop) {
+        width: 70%;
+      }
       &::placeholder {
         color: var(--clr-Red);
+      }
+      &:focus {
+        border: 5px double var(--clr-Cyan);
       }
     }
   }
@@ -248,32 +397,131 @@ html {
     color: var(--clr-bg);
     font-weight: 700;
     cursor: pointer;
+    @include respond(tab) {
+      font-size: 2.5rem;
+      margin-top: 0.3em;
+    }
+    @include respond(desktop) {
+      width: 20%;
+      height: 7rem;
+      padding: 0;
+      margin: 0 0 0 2rem;
+    }
   }
   &__error {
     display: block;
     margin-top: -3rem;
+    height: 1rem;
     color: var(--clr-Red);
     font-size: var(--f-size-XSmall);
+    @include respond(tab) {
+      height: 2rem;
+    }
+    @include respond(desktop) {
+      position: absolute;
+      top: 100%;
+      left: 4.5%;
+    }
   }
 }
 //-----------------------------------------
 // main page content and feature
 .mainContent {
-  background-color: var(--clr-Gray2);
+  background-color: var(--clr-Gray);
   padding: 20rem 1rem 0.1rem;
   text-align: center;
+
+  // the result part
+  //-----------------------------------------
+  & .result {
+    // display: none;
+    margin: -5rem auto 3rem auto;
+    text-align: left;
+    background-color: var(--clr-bg);
+    padding: 1em 1.5em 1.5em 1.5em;
+    border-radius: 0.5rem;
+    width: 90%;
+    @include respond(tab) {
+      margin-top: 0;
+      padding: 3em;
+    }
+    @include respond(desktop) {
+      width: 60%;
+      margin-top: -7rem;
+    }
+
+    &__insertedLink {
+      font-size: var(--f-size-small);
+      color: var(--clr-Very-DarkBlue);
+      overflow: scroll;
+      padding-bottom: 0.5em;
+      margin-bottom: 0.5em;
+      border-bottom: 1px solid var(--clr-Gray2);
+      @include respond(tab) {
+        font-size: var(--f-size-XMedium);
+      }
+    }
+    &__outPutLink {
+      & p {
+        margin-bottom: 0.5em;
+        font-size: var(--f-size-small);
+        color: var(--clr-Cyan);
+        @include respond(tab) {
+          padding-top: var(--gutter-XSmall);
+          font-size: var(--f-size-XMedium);
+        }
+      }
+
+      & button {
+        font-size: var(--f-size-small);
+        width: 100%;
+        border: none;
+        color: var(--clr-bg);
+        border-radius: 0.5rem;
+        cursor: pointer;
+        @include respond(tab) {
+          font-size: var(--f-size-XMedium);
+          margin-top: var(--gutter-XSmall);
+        }
+      }
+    }
+  }
+  //-----------------------------------------
+
   &__header {
+    @include respond(tab) {
+      margin-top: var(--gutter-large);
+    }
+    @include respond(desktop) {
+      margin-top: var(--gutter-medium);
+    }
     & h2 {
       font-size: var(--f-size-XMedium);
       color: var(--clr-Very-DarkBlue);
       margin-bottom: var(--gutter-small);
+      @include respond(tab) {
+        font-size: var(--f-size-medium);
+      }
     }
     & p {
       font-size: var(--f-size-small);
-      color: var(--clr-Grayish-Violet);
+      color: var(--clr-DarkViolet);
       font-weight: 500;
       margin-bottom: var(--gutter-medium);
       line-height: var(--lineHeight-medium);
+      @include respond(tab) {
+        font-size: 2.5rem;
+      }
+      @include respond(desktop) {
+        margin: 0 auto var(--gutter-medium);
+        width: 56%;
+      }
+    }
+  }
+  &__wrapper {
+    @include respond(desktop) {
+      display: flex;
+      margin-bottom: 5rem;
     }
   }
   &__box {
@@ -283,6 +531,28 @@ html {
     padding: 7em 3em 3em;
     border-radius: 0.5rem;
     position: relative;
+    @include respond(tab) {
+      border-radius: 1rem;
+      padding: 7em 10em 3em;
+    }
+    @include respond(desktop) {
+      &:not(:nth-of-type(1)) {
+        margin-left: 4rem;
+      }
+      padding: 7em 3em 3em;
+      &--1 {
+        margin-top: 0rem;
+        margin-bottom: 10rem;
+      }
+      &--2 {
+        margin-top: 5rem;
+        margin-bottom: 5rem;
+      }
+      &--3 {
+        margin-top: 10rem;
+        margin-bottom: 0rem;
+      }
+    }
     &__imageBox {
       position: absolute;
       top: 0;
@@ -291,6 +561,9 @@ html {
       background-color: var(--clr-mainDarkViolet);
       border-radius: 50%;
       padding: 1.5rem;
+      @include respond(desktop) {
+        left: 20%;
+      }
     }
     &__image {
       width: 100%;
@@ -300,12 +573,18 @@ html {
       color: var(--clr-Very-DarkBlue);
       margin-bottom: var(--gutter-XSmall);
       font-weight: 700;
+      @include respond(tab) {
+        font-size: var(--f-size-XMedium);
+      }
     }
     &__body {
       font-size: var(--f-size-XSmall);
       color: var(--clr-Grayish-Violet);
       font-weight: 400;
       line-height: var(--lineHeight-medium);
+      @include respond(tab) {
+        font-size: var(--f-size-small);
+      }
     }
     &__cyanLine {
       position: absolute;
@@ -315,6 +594,12 @@ html {
       transform: translate(50%, 50%);
       height: 5rem;
       background-color: var(--clr-Cyan);
+      @include respond(desktop) {
+        width: 4rem;
+        height: 1rem;
+        right: -5%;
+        top: 30%;
+      }
     }
   }
 }
@@ -323,8 +608,12 @@ html {
 .boostLinks {
   position: relative;
   width: 100%;
+  // height: 500px;
   & img {
     width: 100%;
+    @include respond(tab) {
+      height: 400px;
+    }
   }
   background-color: var(--clr-mainDarkViolet);
   &__bodyWrapper {
@@ -340,6 +629,9 @@ html {
       color: var(--clr-bg);
       font-weight: 900;
       margin-bottom: var(--gutter-small);
+      @include respond(tab) {
+        font-size: var(--f-size-medium);
+      }
     }
     &__btn {
       font-size: var(--f-size-XMedium);
@@ -348,6 +640,9 @@ html {
       padding: 0.7em 2.5em;
       font-weight: 700;
       cursor: pointer;
+      @include respond(tab) {
+        font-size: var(--f-size-medium);
+      }
       &:hover {
         transform: translateY(-2px);
         box-shadow: 3px 5px 8px rgba(0, 0, 0, 0.5);
@@ -366,11 +661,26 @@ html {
   text-align: center;
   padding-top: var(--gutter-large);
   padding-bottom: 1em;
+  &__wrapper {
+    @include respond(desktop) {
+      display: flex;
+    }
+  }
   & img {
     width: 70%;
     margin-bottom: var(--gutter-large);
+    @include respond(desktop) {
+      width: 20%;
+      margin-bottom: 0;
+    }
   }
   &__Nav {
+    width: 100%;
+    @include respond(desktop) {
+      display: flex;
+      justify-content: space-around;
+      width: 70%;
+    }
     & h3 {
       color: var(--clr-bg);
       font-size: var(--f-size-XMedium);
@@ -394,7 +704,10 @@ html {
   }
   .socialContainer {
     width: 60%;
-    margin:  auto;
+    margin: auto;
+    @include respond(desktop) {
+      width: 100%;
+    }
   }
   &__NavSocial {
     &__List {
@@ -402,11 +715,18 @@ html {
       list-style: none;
       display: flex;
       justify-content: space-between;
+      @include respond(tab) {
+        justify-content: space-evenly;
+      }
     }
-    &__link{
-      & img{
+    &__link {
+      & img {
         width: 100%;
         margin-bottom: 2em;
+        @include respond(tab) {
+          width: 70%;
+          margin-left: 2rem;
+        }
       }
     }
   }
