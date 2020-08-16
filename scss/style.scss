@@ -347,7 +347,7 @@ html {
       right: 1.5px;
       z-index: 2;
       @include respond(desktop) {
-        width: 99%;
+        width: 99.8%;
         height: 95%;
       }
     }
@@ -660,7 +660,8 @@ html {
   background-color: var(--clr-DarkViolet);
   text-align: center;
   padding-top: var(--gutter-large);
-  padding-bottom: 2.4em;
+  padding-bottom: 1em;
+  // height: 110vh;
   &__wrapper {
     @include respond(desktop) {
       display: flex;
@@ -722,6 +723,7 @@ html {
     &__link {
       & img {
         width: 100%;
+        height: 50%;
         margin-bottom: 2em;
         @include respond(tab) {
           width: 70%;
