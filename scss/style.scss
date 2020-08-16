@@ -660,7 +660,7 @@ html {
   background-color: var(--clr-DarkViolet);
   text-align: center;
   padding-top: var(--gutter-large);
-  padding-bottom: 1em;
+  padding-bottom: 2.4em;
   &__wrapper {
     @include respond(desktop) {
       display: flex;
