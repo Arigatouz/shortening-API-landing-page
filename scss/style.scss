@@ -533,13 +533,14 @@ html {
     position: relative;
     @include respond(tab) {
       border-radius: 1rem;
-      padding: 7em 10em 3em;
+      padding: 7em 3em 3em;
     }
     @include respond(desktop) {
+      padding: 7em 5em 3em;
       &:not(:nth-of-type(1)) {
         margin-left: 4rem;
       }
-      padding: 7em 3em 3em;
+
       &--1 {
         margin-top: 0rem;
         margin-bottom: 10rem;
