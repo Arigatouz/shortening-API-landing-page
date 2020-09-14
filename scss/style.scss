@@ -208,9 +208,11 @@ html {
       }
       &__item {
         padding: var(--gutter-small) 0 2em;
+        margin-top: var(--gutter-small);
         @include respond(desktop) {
           padding: 0;
           margin-left: var(--gutter-medium);
+          margin-top: 0;
         }
       }
       &__link {
@@ -392,6 +394,7 @@ html {
     margin-top: var(--gutter-small);
     padding: var(--gutter-small);
     border: none;
+
     border-radius: 1rem;
     font-size: var(--f-size-small);
     color: var(--clr-bg);
@@ -409,9 +412,9 @@ html {
     }
   }
   &__error {
-    display: block;
+    display: none;
     margin-top: -3rem;
-    height: 1rem;
+    height: 3rem;
     color: var(--clr-Red);
     font-size: var(--f-size-XSmall);
     @include respond(tab) {
@@ -434,7 +437,7 @@ html {
   // the result part
   //-----------------------------------------
   & .result {
-    // display: none;
+    display: none;
     margin: -5rem auto 3rem auto;
     text-align: left;
     background-color: var(--clr-bg);
