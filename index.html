@@ -20,7 +20,7 @@
   <body>
     <header class="mainHeader">
       <div class="menuToggler">
-        <button id="menuToggler" class="menuToggler__btn">
+        <button id="menuToggler" aria-label="Menu" class="menuToggler__btn">
           <i class="menuToggler__icon fas fa-bars"></i>
         </button>
       </div>
@@ -80,12 +80,22 @@
             ./images/bg-shorten-mobile.svg   900w,
             ./images/bg-shorten-desktop.svg 1440w
           "
+          sizes="(max-width : 480px) 240px,
+                     1440px
+        "
         />
         <form action="#" class="shortenLinks__form">
+          <label
+            style="visibility: hidden"
+            for="shortenLinks__input"
+            aria-label="ShortenLink input"
+            >ShortenLink</label
+          >
           <input
             type="text"
             id="shortenLinks__input"
             placeholder="Shorten a link here..."
+            aria-labelledby="ShortenLink Input"
           />
           <span class="shortenLinks__error"> please enter valid URL </span>
           <button class="BTN shortenLinks__btn" type="submit">
@@ -165,6 +175,9 @@
           ./images/bg-boost-mobile.svg   375w,
           ./images/bg-boost-mobile.svg   900w,
           ./images/bg-boost-desktop.svg 1440w
+        "
+        sizes="(max-width : 480px) 240px,
+                     1440px
         "
       />
       <div class="boostLinks__bodyWrapper">
