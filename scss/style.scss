@@ -369,10 +369,9 @@ html {
     }
     & input {
       padding: 0.5em 0.5em;
-      // border: 3px inset var(--clr-Red);
       border-radius: 0.5rem;
       width: 100%;
-      margin-bottom: 2em;
+      margin-bottom: 1.5em;
       font-size: 2rem;
       color: var(--clr-Red);
       @include respond(tab) {
@@ -394,7 +393,6 @@ html {
     margin-top: var(--gutter-small);
     padding: var(--gutter-small);
     border: none;
-
     border-radius: 1rem;
     font-size: var(--f-size-small);
     color: var(--clr-bg);
@@ -402,7 +400,7 @@ html {
     cursor: pointer;
     @include respond(tab) {
       font-size: 2.5rem;
-      margin-top: 0.3em;
+      margin-top: 0.2em;
     }
     @include respond(desktop) {
       width: 20%;
@@ -413,8 +411,7 @@ html {
   }
   &__error {
     display: none;
-    margin-top: -3rem;
-    height: 3rem;
+    margin-top: -1.8rem;
     color: var(--clr-Red);
     font-size: var(--f-size-XSmall);
     @include respond(tab) {
@@ -423,7 +420,7 @@ html {
     @include respond(desktop) {
       position: absolute;
       top: 100%;
-      left: 4.5%;
+      left: 7%;
     }
   }
 }
@@ -444,6 +441,7 @@ html {
     padding: 1em 1.5em 1.5em 1.5em;
     border-radius: 0.5rem;
     width: 90%;
+
     @include respond(tab) {
       margin-top: 0;
       padding: 3em;

@@ -14,50 +14,40 @@ toggler.addEventListener("click", () => {
 const form = document.querySelector("form");
 const myURL = document.getElementById("shortenLinks__input");
 const errorFormHandling = document.querySelector(".shortenLinks__error");
-const shortenAPILink = `https://rel.ink/api/links/`;
+const shortenAPILink = `https://cors-anywhere.herokuapp.com/https://cleanuri.com/api/v1/shorten`;
 
 const fetchLINK = async (link) => {
-  const response = await fetch(shortenAPILink, {
-    method: "POST",
-    headers: {
-      Accept: "application/json",
-      "Content-Type": "application/json",
-    },
-    credentials: "same-origin",
-    body: JSON.stringify({ url: link }),
-  });
   try {
-    const jsonData = await response.json(link);
-    const getLink = async () => {
-      const result = await fetch(`${shortenAPILink}${jsonData.hashid}`, {
-        method: "GET",
-        headers: {
-          Accept: "application/json",
-          "Content-Type": "application/json",
-        },
-        credentials: "same-origin",
-      });
-      try {
-        const resultJson = await result.json();
-        console.log(resultJson);
-        enteredLink.textContent = resultJson.url.substr(0, 50) + "...";
-        let endLink = "https://rel.ink/" + resultJson.hashid;
-        outPutLink.textContent = endLink;
-        if (resultJson) {
-          resultBox.style.display = "block";
-        }
-      } catch (error) {
-        console.log(error);
+    let encodedURL = `url=${encodeURIComponent(link)}`;
+    console.log(encodedURL);
+    const response = await fetch(shortenAPILink, {
+      method: "POST",
+      headers: {
+        "Content-Type": "application/x-www-form-urlencoded",
+      },
+      credentials: "same-origin",
+      body: encodedURL,
+    });
+    console.log(response.body);
+    try {
+      const jsonData = await response.json();
+      console.log(jsonData);
+      if (jsonData.error == "API Error: After sanitization URL is empty") {
+        resultBox.style.display = "none";
         errorFormHandling.style.display = "block";
         setTimeout((_) => {
           errorFormHandling.style.display = "none";
-        }, 4000);
+        }, 3000);
+      } else {
+        resultBox.style.display = "block";
+        enteredLink.textContent = myURL.value;
+        outPutLink.textContent = jsonData.result_url;
       }
-    };
-    getLink();
+    } catch (error) {
+      console.log(error.message);
+    }
   } catch (error) {
-    console.log(error);
-    errorFormHandling.style.display = "block";
+    console.log(error.message);
   }
 };
 
@@ -72,7 +62,6 @@ form.addEventListener("submit", async (e) => {
 function copyURLToClipBoard() {
   /* Get the text field */
   let copyText = document.querySelector("#myCopiedURL");
-  console.log(copyText);
   /* Select the text field */
   let textAreaH = document.createElement("textarea");
   textAreaH.textContent = copyText.textContent;
@@ -87,14 +76,3 @@ function copyURLToClipBoard() {
   alert("Copied");
 }
 copyURL.addEventListener("click", copyURLToClipBoard);
-/**
- * GET https://rel.ink/api/links/Nn8y9p/
-
-{
-  "hashid":"Nn8y9p",
-  "url": "https://news.ycombinator.com/",
-  "created_at":"2019-06-18T21:29:57.922801Z"
-}
- * 
- * 
- */
