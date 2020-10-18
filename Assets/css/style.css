@@ -18,6 +18,7 @@ html {
 }
 
 :root {
+  --clr-Cyan-dark: hsl(180, 67%, 35%);
   --clr-Cyan: hsl(180, 66%, 49%);
   --clr-bg: #fff;
   --clr-mainDarkViolet: hsl(257, 27%, 26%);
@@ -611,17 +612,25 @@ html {
   }
 }
 
-.mainContent .result__outPutLink p {
+.mainContent .result__outPutLink a {
+  text-decoration: none;
+}
+
+.mainContent .result__outPutLink a p {
   margin-bottom: 0.5em;
   font-size: var(--f-size-small);
   color: var(--clr-Cyan);
 }
 
 @media screen and (min-width: 900px) {
-  .mainContent .result__outPutLink p {
+  .mainContent .result__outPutLink a p {
     padding-top: var(--gutter-XSmall);
     font-size: var(--f-size-XMedium);
   }
+}
+
+.mainContent .result__outPutLink a p:hover {
+  color: var(--clr-Cyan-dark);
 }
 
 .mainContent .result__outPutLink button {

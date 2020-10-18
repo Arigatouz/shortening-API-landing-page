@@ -19,6 +19,7 @@ html {
 //colors declaration
 :root {
   //primary colors
+  --clr-Cyan-dark: hsl(180, 67%, 35%);
   --clr-Cyan: hsl(180, 66%, 49%);
   --clr-bg: #fff;
   --clr-mainDarkViolet: hsl(257, 27%, 26%);
@@ -463,16 +464,21 @@ html {
       }
     }
     &__outPutLink {
-      & p {
-        margin-bottom: 0.5em;
-        font-size: var(--f-size-small);
-        color: var(--clr-Cyan);
-        @include respond(tab) {
-          padding-top: var(--gutter-XSmall);
-          font-size: var(--f-size-XMedium);
+      & a {
+        text-decoration: none;
+        & p {
+          margin-bottom: 0.5em;
+          font-size: var(--f-size-small);
+          color: var(--clr-Cyan);
+          @include respond(tab) {
+            padding-top: var(--gutter-XSmall);
+            font-size: var(--f-size-XMedium);
+          }
+          &:hover {
+            color: var(--clr-Cyan-dark);
+          }
         }
       }
-
       & button {
         font-size: var(--f-size-small);
         width: 100%;

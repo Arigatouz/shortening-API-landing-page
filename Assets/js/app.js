@@ -37,11 +37,12 @@ const fetchLINK = async (link) => {
         errorFormHandling.style.display = "block";
         setTimeout((_) => {
           errorFormHandling.style.display = "none";
-        }, 3000);
+        }, 1000);
       } else {
         resultBox.style.display = "block";
-        enteredLink.textContent = myURL.value;
+        enteredLink.textContent = `${myURL.value.substring(0, 50)}.....`;
         outPutLink.textContent = jsonData.result_url;
+        outPutLink.parentElement.setAttribute("href", jsonData.result_url);
       }
     } catch (error) {
       console.log(error.message);
@@ -73,6 +74,11 @@ function copyURLToClipBoard() {
   textAreaH.textContent = "";
   textAreaH.style.display = "none";
   /* Alert the copied text */
-  alert("Copied");
+  copyURL.textContent = "Copied!";
+  copyURL.style.backgroundColor = "hsl(257, 27%, 26%)";
+  setTimeout(() => {
+    copyURL.textContent = "Copy";
+    copyURL.style.backgroundColor = " hsl(180, 66%, 49%)";
+  }, 3000);
 }
 copyURL.addEventListener("click", copyURLToClipBoard);
